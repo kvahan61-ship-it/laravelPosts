@@ -50,6 +50,39 @@
                     @endif
                 </button>
             </form>
+        </div><div class="right-actions">
+            <form action="{{ route('post.save', $post->id) }}" method="POST" style="display: inline;">
+                @csrf
+                <button type="submit" class="action-btn" title="Save">
+                    @if(auth()->user()->savedPosts->contains($post->id))
+                        <i class="fa fa-bookmark" aria-hidden="true" style="color: #262626;"></i>
+                    @else
+                        <i class="fa fa-bookmark-o" aria-hidden="true"></i>
+                    @endif
+                </button>
+            </form>
+        </div><div class="right-actions">
+            <form action="{{ route('post.save', $post->id) }}" method="POST" style="display: inline;">
+                @csrf
+                <button type="submit" class="action-btn" title="Save">
+                    @if(auth()->user()->savedPosts->contains($post->id))
+                        <i class="fa fa-bookmark" aria-hidden="true" style="color: #262626;"></i>
+                    @else
+                        <i class="fa fa-bookmark-o" aria-hidden="true"></i>
+                    @endif
+                </button>
+            </form>
+        </div><div class="right-actions">
+            <form action="{{ route('post.save', $post->id) }}" method="POST" style="display: inline;">
+                @csrf
+                <button type="submit" class="action-btn" title="Save">
+                    @if(auth()->user()->savedPosts->contains($post->id))
+                        <i class="fa fa-bookmark" aria-hidden="true" style="color: #262626;"></i>
+                    @else
+                        <i class="fa fa-bookmark-o" aria-hidden="true"></i>
+                    @endif
+                </button>
+            </form>
         </div>
     </div>
 </div>
