@@ -30,7 +30,7 @@
                     @csrf
                     <button type="submit" class="action-btn" title="Save">
                         @if(auth()->user()->likePosts->contains($post->id))
-                            <i class="fa fa-heart" aria-hidden="true" style="color: #e``00;"></i>
+                            <i class="fa fa-heart" aria-hidden="true" style="color: #e00;"></i>
                         @else
                             <i class="fa fa-heart-o" aria-hidden="true"></i>
                         @endif
@@ -52,17 +52,4 @@
             </form>
         </div>
     </div>
-
-    {{--                <div class="post-info">--}}
-    {{--                    <span class="likes-count">1,234 likes</span>--}}
-
-    {{--                    <div class="post-caption">--}}
-    {{--                        <b>User_{{ $post->id }}</b> {{ $post->title }}--}}
-    {{--                    </div>--}}
-
-    {{--                    <div style="margin-top: 8px; color: #8e8e8e; font-size: 12px; cursor: pointer;">--}}
-    {{--                        View all 15 comments--}}
-    {{--                    </div>--}}
-    {{--                </div>--}}
-
 </div>
