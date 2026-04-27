@@ -8,7 +8,6 @@ use Illuminate\Support\Facades\Auth;
 
 class LoginController extends Controller
 {
-    // 1. Ցույց տալ ֆորման (GET)
     public function login()
     {
         return view('auth.login');

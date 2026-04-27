@@ -49,13 +49,11 @@
                             </form>
                             @if(auth()->user()->role === 'superadmin')
                                 @if($user->role === 'user')
-                                    {{-- Եթե user է, ցույց տալ ադմին սարքելու կոճակը --}}
                                     <form action="{{ route('admin.users.makeAdmin', $user->id) }}" method="POST" style="display:inline;">
                                         @csrf
                                         <button type="submit" class="btn-make-admin">Դարձնել Ադմին</button>
                                     </form>
                                 @elseif($user->role === 'admin')
-                                    {{-- Եթե ադմին է, ցույց տալ user սարքելու կոճակը --}}
                                     <form action="{{ route('admin.users.makeUser', $user->id) }}" method="POST" style="display:inline;">
                                         @csrf
                                         <button type="submit" class="btn-make-user">Սարքել Օգտատեր</button>

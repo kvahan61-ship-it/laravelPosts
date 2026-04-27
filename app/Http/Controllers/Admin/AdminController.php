@@ -44,32 +44,26 @@ class AdminController extends Controller
 
     public function destroyUser(User $user)
     {
-        // 1. Գտնում ենք օգտատիրոջ բոլոր պոստերը
         foreach ($user->posts as $post) {
-            // Ջնջում ենք պոստի նկարը սերվերից
             if ($post->image) {
                 Storage::disk('public')->delete($post->image);
             }
-            // Ջնջում ենք պոստը
             $post->delete();
         }
         if (auth()->user()->role !== 'superadmin' && $user->role === 'admin') {
             return back()->with('error', 'Միայն SuperAdmin-ը կարող է ջնջել ադմիններին:');
         }
 
-        // Պաշտպանություն SuperAdmin-ին ջնջելուց
         if ($user->role === 'superadmin') {
             return back()->with('error', 'SuperAdmin-ին հնարավոր չէ ջնջել:');
         }
         if ($user->role === 'superadmin') {
             return back()->with('error', 'SuperAdmin-ին հնարավոր չէ ջնջել:');
         }
-        // 2. Ջնջում ենք օգտատիրոջ նկարը (եթե ունի avatar)
         if ($user->avatar) {
             Storage::disk('public')->delete($user->avatar);
         }
 
-        // 3. Վերջնական ջնջում ենք օգտատիրոջը
         $user->delete();
 
         return back()->with('success', 'Օգտատերը և նրա բոլոր տվյալները հաջողությամբ ջնջվեցին:');

@@ -19,9 +19,9 @@ class AdminSeeder extends Seeder
                 'name' => 'Super Admin',
                 'password' => \Illuminate\Support\Facades\Hash::make('admin@mail.com'),
                 'role' => 'superadmin',
-                'phoneNumber' => '00000000', // Ավելացրու այս տողը
+                'phoneNumber' => '00000000',
                 'is_blocked' => false,
-                'gender' => 'male', // Եթե սա էլ է պարտադիր, ավելացրու նաև սա
+                'gender' => 'male',
             ]
         );
     }

@@ -16,9 +16,8 @@ class CheckBlocked
 
         public function handle(Request $request, Closure $next)
     {
-        // Ստուգում ենք՝ արդյոք օգտատերը մուտք գործած է և արգելափակված է
         if (auth()->check() && auth()->user()->is_blocked) {
-            auth()->logout(); // Դուրս ենք հանում համակարգից
+            auth()->logout();
 
             $request->session()->invalidate();
             $request->session()->regenerateToken();

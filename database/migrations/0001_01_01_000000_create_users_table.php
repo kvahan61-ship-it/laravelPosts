@@ -17,9 +17,9 @@ return new class extends Migration
             $table->string('email')->unique();
 
             // --- НОВЫЕ ПОЛЯ ---
-            $table->string('phoneNumber')->unique(); // Уникальный номер телефона
-            $table->string('gender')->nullable();    // Пол (male/female)
-            $table->string('avatar')->nullable();    // Путь к файлу аватара
+            $table->string('phoneNumber')->unique();
+            $table->string('gender')->nullable();
+            $table->string('avatar')->nullable();
             $table->string('role')->default('user');
             $table->boolean('is_blocked')->default(0);
             // ------------------

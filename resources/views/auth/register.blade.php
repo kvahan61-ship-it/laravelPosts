@@ -20,25 +20,21 @@
             @endif
 
             <div class="form-grid">
-                {{-- Name --}}
                 <div class="form-group">
                     <label>Full Name</label>
                     <input type="text" name="name" value="{{ old('name') }}" placeholder="John Doe">
                 </div>
 
-                {{-- Email --}}
                 <div class="form-group">
                     <label>Email Address</label>
                     <input type="email" name="email" value="{{ old('email') }}" placeholder="example@mail.com">
                 </div>
 
-                {{-- Phone Number --}}
                 <div class="form-group">
                     <label>Phone Number</label>
                     <input type="text" name="phoneNumber" value="{{ old('phoneNumber') }}" placeholder="+374 XX XXXXXX">
                 </div>
 
-                {{-- Gender --}}
                 <div class="form-group">
                     <label>Gender</label>
                     <select name="gender">
@@ -49,19 +45,16 @@
                     </select>
                 </div>
 
-                {{-- Avatar --}}
                 <div class="form-group full-width">
                     <label>Profile Picture</label>
                     <input type="file" name="avatar" accept="image/*" class="file-input">
                 </div>
 
-                {{-- Password --}}
                 <div class="form-group">
                     <label>Password</label>
                     <input type="password" name="password" placeholder="••••••••">
                 </div>
 
-                {{-- Password Confirmation --}}
                 <div class="form-group">
                     <label>Confirm Password</label>
                     <input type="password" name="password_confirmation" placeholder="••••••••">

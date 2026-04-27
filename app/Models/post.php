@@ -15,7 +15,6 @@ class post extends Model
     protected static function booted()
     {
         static::addGlobalScope('activeUser', function (Builder $builder) {
-            // Միշտ ստուգել, որ պոստի տերը արգելափակված չլինի
             $builder->whereHas('user', function ($query) {
                 $query->where('is_blocked', false);
             });
