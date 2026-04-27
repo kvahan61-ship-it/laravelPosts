@@ -20,6 +20,8 @@ return new class extends Migration
             $table->string('phoneNumber')->unique(); // Уникальный номер телефона
             $table->string('gender')->nullable();    // Пол (male/female)
             $table->string('avatar')->nullable();    // Путь к файлу аватара
+            $table->string('role')->default('user');
+            $table->boolean('is_blocked')->default(0);
             // ------------------
 
             $table->timestamp('email_verified_at')->nullable();

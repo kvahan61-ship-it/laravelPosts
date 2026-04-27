@@ -4,9 +4,11 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    @vite(['resources/css/app.css'])
     <title>MySocial</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    @vite(['resources/css/app.css'])
+
+    @stack('styles')
 </head>
 <body>
 @auth
@@ -24,13 +26,22 @@
     </nav>
 
     <div class="registerPart">
-        {{-- Если пользователь залогинен, покажем аватар, если нет — кнопки входа --}}
         @auth
             <div class="user-profile">
-                <span class="username">{{ auth()->user()->name }}</span>
+                @auth
+                    @if(auth()->user()->role === 'admin' || auth()->user()->role === 'superadmin')
+                        <li><a href="{{ route('admin.dashboard') }}" style="color: #e00; font-weight: bold;">Admin Panel</a></li>
+                    @endif
+                @endauth
+
+
+                <a href="{{ route('profile') }}"
+                class="username">{{ auth()->user()->name }}</a>
                 <div class="avatar-container">
                     @if(auth()->user()->avatar)
-                        <img src="{{ asset('storage/' . auth()->user()->avatar) }}" alt="avatar" class="avatar-image">
+                        <a href="{{ route('profile') }}" >
+                            <img src="{{ asset('storage/' . auth()->user()->avatar) }}" alt="avatar" class="avatar-image">
+                        </a>
                     @else
                         <div class="avatar-placeholder">
                             {{-- Берем первую букву имени, если нет фото --}}

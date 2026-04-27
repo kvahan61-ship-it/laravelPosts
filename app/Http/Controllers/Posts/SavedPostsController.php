@@ -1,23 +1,23 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Posts;
 
-use Illuminate\Http\Request;
+use App\Http\Controllers\Controller;
 
-class likeController extends Controller
+class SavedPostsController extends Controller
 {
-    public function like()
+    public function saved()
     {
         $savedPosts = auth()->user()->savedPosts()->with('user')->latest()->get();
         return view('saved', compact('savedPosts'));
     }
-    public function toggleLike($postId)
+    public function toggleSave($postId)
     {
         $user = auth()->user();
 
         // Метод toggle() автоматически добавит запись, если её нет,
-        // и удалит, если она уже существует в таблице likes.
-        $user->likePosts()->toggle($postId);
+        // и удалит, если она уже существует в таблице saved_posts.
+        $user->savedPosts()->toggle($postId);
 
         return back(); // Возвращает пользователя на ту же страницу
     }

@@ -1,5 +1,7 @@
 @extends('layouts.layout')
-
+@push('styles')
+    @vite(['resources/css/auth.css'])
+@endpush
 @section('main')
     <div class="auth-container">
         <form action="{{ route('register.store') }}" method="post" enctype="multipart/form-data" class="auth-form">

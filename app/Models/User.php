@@ -18,6 +18,8 @@ class User extends Authenticatable
         'phoneNumber',
         'gender',
         'avatar',
+        'role',
+        'is_blocked',
     ];
 
 
